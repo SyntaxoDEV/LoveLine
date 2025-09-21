@@ -1,257 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoveLine - Inclusive Dating</title>
-    <style>
-        :root {
-            --pink: #ff4d79;
-            --dark-pink: #c2185b;
-            --discord-blue: #5865F2;
-        }
-        
-        body {
-            background-color: #ffebee;
-            font-family: 'Georgia', serif;
-            margin: 0;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        /* ANIMATED HEARTS */
-        .heart {
-            position: absolute;
-            opacity: 0.4;
-            animation: float 8s ease-in-out infinite;
-            pointer-events: none;
-            font-size: 24px;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(15deg); }
-        }
-        
-        /* MAIN HEADER */
-        .header {
-            text-align: center;
-            padding: 40px 20px 0;
-            position: relative;
-        }
-        
-        h1 {
-            color: var(--dark-pink);
-            font-size: 5em;
-            font-weight: normal;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
-            margin: 0;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
-            z-index: -1;
-            opacity: 0.6;
-            border-radius: 50%;
-            animation: pulse 3s infinite;
-        }
-        
-        .tagline {
-            color: var(--pink);
-            font-style: italic;
-            margin-top: 10px;
-            font-size: 1.3em;
-        }
-        
-        /* INFO CARDS */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .info-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .info-card h3 {
-            color: var(--dark-pink);
-            font-size: 1.5em;
-            margin-top: 0;
-        }
-        
-        .info-card p {
-            color: #555;
-            line-height: 1.6;
-        }
-        
-        .icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: var(--pink);
-        }
-        
-        /* DISCORD PROMO */
-        .discord-promo {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,235,235,0.9) 100%);
-            padding: 40px 20px;
-            text-align: center;
-            margin: 50px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .discord-promo::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ff4d7930"><path d="M30,50 Q50,30 70,50 Q50,70 30,50"></path></svg>');
-            animation: drift 60s linear infinite;
-            z-index: -1;
-        }
-        
-        .discord-promo h2 {
-            color: var(--discord-blue);
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-        
-        .discord-btn {
-            background-color: var(--discord-blue);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.3);
-        }
-        
-        .discord-btn:hover {
-            background-color: #4752C4;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 15px rgba(88, 101, 242, 0.4);
-        }
-        
-        /* TESTIMONIAL */
-        .testimonial {
-            font-style: italic;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            border-left: 3px solid var(--pink);
-            background: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* ANIMATIONS */
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.6; }
-            50% { transform: scale(1.05); opacity: 0.3; }
-            100% { transform: scale(0.95); opacity: 0.6; }
-        }
-        
-        @keyframes drift {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #888;
-            background: rgba(255, 255, 255, 0.8);
-            margin-top: 50px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoveLine - Inclusive Dating</title>
+<style>
+    :root {
+        --pink: #ff4d79;
+        --dark-pink: #c2185b;
+        --discord-purple: #7289da;
+        --light-bg: #ffe6f0;
+        --card-bg: #ffffffee;
+    }
+
+    body {
+        background-color: var(--light-bg);
+        font-family: 'Georgia', serif;
+        margin: 0;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* ANIMATED HEARTS AS BACKGROUND */
+    .heart {
+        position: fixed; /* fixed, żeby były w tle i nie przewijały się razem z contentem */
+        opacity: 0.25;
+        font-size: 24px;
+        pointer-events: none;
+        animation: float 10s ease-in-out infinite;
+        z-index: 0; /* zawsze w tle */
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-40px) rotate(20deg); }
+    }
+
+    /* MAIN HEADER */
+    .header {
+        text-align: center;
+        padding: 60px 20px 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        color: var(--dark-pink);
+        font-size: 5em;
+        font-weight: normal;
+        letter-spacing: 3px;
+        text-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+        margin: 0;
+        display: inline-block;
+        position: relative;
+    }
+
+    h1::after {
+        content: '';
+        position: absolute;
+        top: -25px;
+        left: -25px;
+        right: -25px;
+        bottom: -25px;
+        background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+        z-index: -1;
+        opacity: 0.6;
+        border-radius: 50%;
+        animation: pulse 3s infinite;
+    }
+
+    .tagline {
+        color: var(--pink);
+        font-style: italic;
+        margin-top: 15px;
+        font-size: 1.4em;
+    }
+
+    /* INFO CARDS */
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        z-index: 1;
+        position: relative;
+    }
+
+    .info-card {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+    }
+
+    .info-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .info-card h3 {
+        color: var(--dark-pink);
+        font-size: 1.6em;
+        margin-top: 0;
+    }
+
+    .info-card p {
+        color: #555;
+        line-height: 1.7;
+    }
+
+    .icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+        color: var(--pink);
+    }
+
+    /* DISCORD FRAME */
+    .discord-frame {
+        width: 280px;
+        height: 280px;
+        background: #2c2f33;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        margin: 50px auto;
+        text-align: center;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .discord-frame img {
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        margin-top: 20px;
+        border: 2px solid var(--discord-purple);
+        background: white;
+    }
+
+    .discord-frame h3 {
+        margin: 8px 0 0 0;
+        font-size: 1.3em;
+        color: #ffffff;
+    }
+
+    .member-count {
+        font-weight: bold;
+        font-size: 1.15em;
+        color: #ffffff;
+    }
+
+    .discord-join {
+        margin-top: 15px;
+        padding: 12px 25px;
+        background: var(--discord-purple);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .discord-join:hover {
+        background: #5b6eae;
+        transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: #888;
+        background: rgba(255, 255, 255, 0.85);
+        margin-top: 50px;
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(0.95); opacity: 0.6; }
+        50% { transform: scale(1.05); opacity: 0.3; }
+        100% { transform: scale(0.95); opacity: 0.6; }
+    }
+
+</style>
 </head>
 <body>
-    <!-- ANIMATED HEARTS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const colors = ['#ffcdd2', '#f8bbd0', '#f48fb1', '#f06292', '#ec407a', '#e91e63'];
-            const body = document.body;
-            
-            for (let i = 0; i < 60; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤';
-                heart.classList.add('heart');
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.fontSize = (Math.random() * 30 + 15) + 'px';
-                heart.style.animationDelay = Math.random() * 8 + 's';
-                heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                body.appendChild(heart);
-            }
-        });
-    </script>
-    
-    <div class="header">
-        <h1>LoveLine</h1>
-        <div class="tagline">Where Hearts Connect Beyond Labels</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const colors = ['#ffcdd2', '#f8bbd0', '#f48fb1', '#f06292', '#ec407a', '#e91e63'];
+        const body = document.body;
+        for (let i = 0; i < 80; i++) { // więcej serc
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            body.appendChild(heart);
+        }
+    });
+</script>
+
+<div class="header">
+    <h1>LoveLine</h1>
+    <div class="tagline">Connecting Hearts of All Orientations</div>
+</div>
+
+<div class="info-grid">
+    <div class="info-card">
+        <div class="icon">🌈</div>
+        <h3>All Orientations Welcome</h3>
+        <p>Our server is a safe space for LGBTQ+ and straight users alike. Everyone can find love, friendship, or creative connections here.</p>
     </div>
-    
-    <!-- INFO CARDS -->
-    <div class="info-grid">
-        <div class="info-card">
-            <div class="icon">🌈</div>
-            <h3>LGBTQ+ Friendly</h3>
-            <p>A safe space for everyone regardless of sexual orientation or gender identity. We celebrate diversity in all its forms.</p>
-        </div>
-        
-        <div class="info-card">
-            <div class="icon">💘</div>
-            <h3>Modern Matchmaking</h3>
-            <p>Our unique algorithm connects people based on interests and personality, not just appearance or gender.</p>
-        </div>
-        
-        <div class="info-card">
-            <div class="icon">🛡️</div>
-            <h3>Safe Community</h3>
-            <p>Strict anti-harassment policies and active moderation ensure a comfortable environment for all members.</p>
-        </div>
+
+    <div class="info-card">
+        <div class="icon">💘</div>
+        <h3>Creative Sharing</h3>
+        <p>Share your art, writing, and projects. Connect with others who appreciate your work in a friendly and inclusive environment.</p>
     </div>
-    
-    <!-- DISCORD PROMO -->
-    <div class="discord-promo">
-        <h2>Join Our Growing Community!</h2>
-        <p>Connect with open-minded people in our Discord server featuring:</p>
-        <p>• Weekly virtual speed dating events<br>
-           • Discussion channels about relationships and identity<br>
-           • Supportive community for all orientations</p>
-        <a href="https://discord.gg/8QbZDy25Z3" class="discord-btn" target="_blank">Join Now →</a>
+
+    <div class="info-card">
+        <div class="icon">🛡️</div>
+        <h3>Safe & Fun</h3>
+        <p>13+ community, moderated channels, and strict anti-harassment rules to make everyone feel welcome and respected.</p>
     </div>
-    
-    <footer>
-        LoveLine © 2025 | Inclusive Dating Server | All Genders Welcome
-    </footer>
+</div>
+
+<div class="discord-frame">
+    <img src="ICON.png" alt="LL">
+    <h3>LoveLine</h3>
+    <div class="member-count">Members: <span id="member-number">Loading...</span></div>
+    <a href="https://discord.gg/jBbtECujyw" target="_blank" class="discord-join">Join</a>
+</div>
+
+<footer>
+    LoveLine © 2025 | Inclusive Dating Server | For All Genders & Orientations
+</footer>
+
+<script>
+    const memberNumber = document.getElementById('member-number');
+    let members = 700;
+    memberNumber.innerText = "+"+members;
+</script>
 </body>
 </html>
