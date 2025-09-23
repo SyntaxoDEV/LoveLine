@@ -143,6 +143,18 @@ h1::after {
     margin: 0;
 }
 
+.discord-frame p {
+    font-size: 28px;                 /* większy i czytelny */
+    color: #757fee;                  /* kolor Discorda */
+    margin: 10px 0 20px 0;           /* odstęp od góry i dołu */
+    text-align: center;              /* wyśrodkowanie napisu */
+    font-weight: 900;                /* pogrubienie */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* nowoczesna czcionka */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* lekki cień dla efektu głębi */
+    transition: color 0.3s, text-shadow 0.3s; /* płynna zmiana przy hover */
+}
+
+
 /* Stan początkowy (przygotowanie) */
 .discord-frame.animate-ready {
     opacity: 0;
