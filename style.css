@@ -1,33 +1,21 @@
 :root {
-    --pink: #ff4d79;
-    --dark-pink: #c2185b;
-    --discord-purple: #7289da;
-    --light-bg: linear-gradient(135deg, #ffe6f0, #f0aac6);
-    --card-bg: rgba(255, 255, 255, 0.9);
+    --pink: #ffb6c1;          /* pastelowy róż */
+    --hot-pink: #ff69b4;      /* mocniejszy róż */
+    --peach: #ffd6a5;         /* brzoskwinia */
+    --mint: #caffbf;          /* mięta */
+    --lavender: #e5ddf0;      /* lawenda */
+    --light-bg: linear-gradient(135deg, #ffe6f0, #fff0f5, #e4cfe3);
+    --card-bg: rgba(255, 255, 255, 0.85);
 }
 
+/* BODY */
 body {
     background: var(--light-bg);
-    font-family: 'Georgia', serif;
+    font-family: 'Comic Neue', 'Poppins', sans-serif;
     margin: 0;
     min-height: 100vh;
-    position: relative;
+    color: #444;
     overflow-x: hidden;
-}
-
-/* HEARTS */
-.heart {
-    position: fixed;
-    opacity: 0.25;
-    font-size: 24px;
-    pointer-events: none;
-    animation: float 10s ease-in-out infinite;
-    z-index: 0;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-50px) rotate(20deg); }
 }
 
 /* HEADER */
@@ -35,177 +23,160 @@ body {
     text-align: center;
     padding: 80px 20px 40px;
     position: relative;
-    z-index: 1;
 }
 
 h1 {
-    color: var(--dark-pink);
     font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+    font-weight: 800;
+    color: var(--hot-pink);
+    text-shadow: 3px 3px 0 #fff, 6px 6px 15px rgba(0,0,0,0.1);
     margin: 0;
-    display: inline-block;
+    letter-spacing: 2px;
     position: relative;
 }
 
-h1::after {
-    content: '';
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    right: -30px;
-    bottom: -30px;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-    z-index: -1;
-    border-radius: 50%;
-    animation: pulse 3s infinite;
+@keyframes float { 
+    /*0%, 100% { transform: translateY(0) rotate(0deg); }*/
+    0%, 50%, 100% { transform: translateY(-50px) rotate(20deg); }
 }
+/* HEARTS */ 
+.heart { position: fixed; opacity: 0.25; font-size: 24px; pointer-events: none; animation: float 10s ease-in-out infinite; z-index: 0; } 
 
 .tagline {
-    color: var(--pink);
-    font-style: italic;
-    margin-top: 15px;
+    color: var(--lavender);
     font-size: 1.5em;
+    font-style: italic;
+    margin-top: 10px;
 }
 
-/* INFO CARDS */
+/* CARDS */
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 25px;
     padding: 50px 20px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    z-index: 1;
-    position: relative;
 }
 
 .info-card {
     background: var(--card-bg);
-    border-radius: 20px;
-    padding: 35px 25px;
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 25px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    backdrop-filter: blur(5px);
+    border: 3px dashed var(--pink);
 }
 
 .info-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+    border-style: solid;
 }
 
 .info-card h3 {
-    color: var(--dark-pink);
-    font-size: 1.7em;
-    margin: 15px 0 10px;
+    color: var(--hot-pink);
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
-/*
+
 .info-card p {
-    color: #555;
-    line-height: 1.8;
     font-size: 1em;
+    line-height: 1.6;
+    color: #666;
 }
-*/
 
 .icon {
-    font-size: 3.5em;
+    font-size: 3em;
     margin-bottom: 15px;
-    color: var(--pink);
+    color: var(--peach);
+    text-shadow: 1px 1px 0 #fff;
 }
 
 /* DISCORD FRAME */
 .discord-frame {
     width: 320px;
-    background: #2c2f33;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    background: #fff0f5;
+    border-radius: 30px;
     margin: 60px auto;
     text-align: center;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+    border: 4px solid var(--lavender);
+    position: relative;
+}
+
+.discord-frame::before {
+    content: "✨";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    font-size: 2rem;
 }
 
 .discord-frame img {
     width: 80px;
     height: 80px;
     border-radius: 20px;
-    border: 3px solid var(--discord-purple);
+    border: 3px solid var(--hot-pink);
     background: white;
 }
 
 .discord-frame h3 {
+    color: var(--hot-pink);
     font-size: 1.4em;
-    color: #fff;
-    margin: 0;
+    margin: 10px 0;
 }
 
 .discord-frame p {
-    font-size: 28px;                 /* większy i czytelny */
-    color: #757fee;                  /* kolor Discorda */
-    margin: 10px 0 20px 0;           /* odstęp od góry i dołu */
-    text-align: center;              /* wyśrodkowanie napisu */
-    font-weight: 900;                /* pogrubienie */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* nowoczesna czcionka */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* lekki cień dla efektu głębi */
-    transition: color 0.3s, text-shadow 0.3s; /* płynna zmiana przy hover */
-}
-
-
-/* Stan początkowy (przygotowanie) */
-.discord-frame.animate-ready {
-    opacity: 0;
-    transform: translateY(50px) scale(0.9);
-    transition: all 0.8s ease-out;
-}
-
-/* Animacja po przewinięciu */
-.discord-frame.animate-on-scroll {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-
-.member-count {
+    font-size: 22px;
+    color: var(--lavender);
     font-weight: bold;
-    font-size: 1.15em;
-    color: #2c2f33;
+    margin: 8px 0 15px;
+    text-shadow: 1px 1px 2px #fff;
 }
 
 .discord-join {
-    margin-top: 12px;
-    padding: 12px 28px;
-    background: var(--discord-purple);
-    color: white;
+    margin-top: 10px;
+    padding: 12px 25px;
+    background: var(--mint);
+    color: #333;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 25px;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .discord-join:hover {
-    background: #5b6eae;
-    transform: translateY(-3px) scale(1.03);
+    background: var(--peach);
+    transform: scale(1.05);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 35px;
-    color: #888;
-    background: rgba(255, 255, 255, 0.85);
-    margin-top: 50px;
+    padding: 30px;
     font-size: 0.95em;
-    position: relative;
-    z-index: 1;
+    color: #777;
+    background: rgba(255, 240, 245, 0.8);
+    border-top: 3px dotted var(--pink);
+}
+.heart {
+    position: fixed;
+    bottom: -50px;                /* start z dołu ekranu */
+    font-size: 24px;
+    color: var(--pink);
+    opacity: 0.25;
+    pointer-events: none;
+    animation: floatSlow 10s ease-in-out infinite;
+    z-index: 0;
 }
 
-@keyframes pulse {
-    0% { transform: scale(0.95); opacity: 0.6; }
-    50% { transform: scale(1.05); opacity: 0.3; }
-    100% { transform: scale(0.95); opacity: 0.6; }
+
+
+/* ANIMATIONS */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
