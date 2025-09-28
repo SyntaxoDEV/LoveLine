@@ -35,10 +35,24 @@ h1 {
     position: relative;
 }
 
-@keyframes float { 
-    /*0%, 100% { transform: translateY(0) rotate(0deg); }*/
-    0%, 50%, 100% { transform: translateY(-50px) rotate(20deg); }
+@keyframes float {
+    0%   { transform: translateY(0px) rotate(0deg); }
+    25%  { transform: translateY(-20px) rotate(5deg); }
+    50%  { transform: translateY(-50px) rotate(20deg); }
+    75%  { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
 }
+@keyframes Star { 
+    0% { transform: rotate(-10deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(-10deg); }
+}
+@keyframes ButtonAnimation {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.5); } /* powiększenie */
+    100% { transform: scale(1); }   /* powrót do normalnego rozmiaru */
+}
+
 /* HEARTS */ 
 .heart { position: fixed; opacity: 0.25; font-size: 24px; pointer-events: none; animation: float 10s ease-in-out infinite; z-index: 0; } 
 
@@ -110,9 +124,11 @@ h1 {
 .discord-frame::before {
     content: "✨";
     position: absolute;
-    top: -15px;
-    left: -15px;
-    font-size: 2rem;
+    top: -30px;
+    left: -30px;
+    display: inline-block;
+    animation: Star 2s infinite;
+    font-size: 3rem;
 }
 
 .discord-frame img {
@@ -148,10 +164,17 @@ h1 {
     transition: 0.3s ease;
 }
 
+.discord-join {
+    display: inline-block;
+    transform: scale(1) rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
 .discord-join:hover {
     background: var(--peach);
-    transform: scale(1.05);
+    transform: scale(1.2) rotate(-2deg);
 }
+
 
 /* FOOTER */
 footer {
@@ -164,12 +187,13 @@ footer {
 }
 .heart {
     position: fixed;
+    display: inline-block;
     bottom: -50px;                /* start z dołu ekranu */
     font-size: 24px;
     color: var(--pink);
     opacity: 0.25;
     pointer-events: none;
-    animation: floatSlow 10s ease-in-out infinite;
+    animation: float 10s ease-in-out infinite;
     z-index: 0;
 }
 
